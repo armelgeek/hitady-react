@@ -1,0 +1,8 @@
+{
+  "home": {
+    "Title": "Welcome to {param}"
+  },
+  "restaurant":{
+    "noItemCart":"Nothing in the cart"
+  }
+}

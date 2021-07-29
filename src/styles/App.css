@@ -1,0 +1,53 @@
+* {
+  font-family: "Muli", sans-serif !important;
+}
+
+body {
+  padding: 2rem;
+}
+
+div,
+input,
+label {
+  font-weight: bold !important;
+}
+
+label {
+  font-size: 1.15rem;
+}
+
+p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* App.js */
+.one.column.row {
+  border-bottom: 1px solid rgb(239, 239, 239);
+}
+.ui.grid > .row > .column {
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.four {
+  margin-left: auto;
+}
+.eleven {
+  margin-right: auto;
+}
+
+/*  Button */
+.ui.primary.button,
+.ui.primary.button:focus {
+  font-family: "Muli", sans-serif !important;
+  background-color: rgb(80, 255, 125);
+  color: black;
+  border-radius: 0px;
+  padding: 15px 15px 15px 15px;
+}
+
+.ui.primary.button:hover {
+  color: black;
+  background-color: rgb(-80, 200, 25, 1);
+}

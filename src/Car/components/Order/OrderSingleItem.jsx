@@ -1,0 +1,57 @@
+import React, { useState } from 'react'
+
+export default function OrderSingleItem(props) {
+
+    const [showWarning, setShowWarning] = useState(false);
+    let startDate = new Date(props.startDate).toLocaleDateString('fr-FR');
+    let endDate = new Date(props.endDate).toLocaleDateString('fr-FR');
+    let totalPrice;
+    if (props.totalPrice) {
+        totalPrice = (props.totalPrice).toFixed(2);
+    };
+    const showDeleteWarning = () => {
+        setShowWarning(true);
+    };
+
+    const hideDeleteWarning = () => {
+        setShowWarning(false);
+    };
+    return (
+        <>
+            {
+                showWarning &&
+                <div>
+                    <p>Vous voulez vraiment supprimer</p>
+
+                </div>
+            }
+            <div>
+                <p className='name'>{props.name}</p>
+                <p className='total-price'>Your price:<span> {totalPrice} </span>€</p>
+                <div className='order-info'>
+                    <p>Rent dates from {startDate} <span>to {endDate}</span></p>
+                    <p>For total of {props.totalDays} days</p>
+                </div>
+                {
+                    !props.isPayNow
+                        ? <p className='off-message'>Pay now and get 10% off </p>
+                        : <p className='off-message'>Proceed to checkout </p>
+                }
+                <div className='buttons'>
+                    {
+                        !props.isPayNow
+                            ? <>
+                                <p onClick={props.onPayNowHandler} className='button-action'>Pay now</p>
+                                <p onClick={props.onInvoicePdf} className='button-action'>Pay Later</p>
+                            </>
+                            : <>
+                                <p onClick={props.onPayLaterHandler} className='button-action'>Undo pay</p>
+                                <p onClick={props.sendInvoiceEmail} className='button-action'>Checkout</p>
+                            </>
+                    }
+                    <p onClick={showDeleteWarning} className='button-action'>Delete</p>
+                </div>
+            </div>
+        </>
+    )
+}

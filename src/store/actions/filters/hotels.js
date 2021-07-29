@@ -3,26 +3,26 @@ export const editCriteria = (name, value, minName, maxName) => dispatch => {
         //si name est un objet sûr, modifiez l'objet criteria avec chaque propriété et valeur de ce nom
         return Object.keys(name).forEach(key => {
             dispatch({
-                type: "EDIT_CRITERIA",
+                type: "EDIT_CRITERIA_HOTEL",
                 payload: { [key]: name[key] }
             });
         });
     } else if (minName && maxName) {
         //ce bloc gère les valeurs d'entrée du curseur/plage
         dispatch({
-            type: "EDIT_CRITERIA",
+            type: "EDIT_CRITERIA_HOTEL",
             payload: { [minName]: value.min, [maxName]: value.max }
         });
     } else if (name === "tags") {
         //tags  besoin d'un tableau comme valeur pour le backend
         dispatch({
-            type: "EDIT_CRITERIA",
+            type: "EDIT_CRITERIA_HOTEL",
             payload: { [name]: value === "" ? "" : [value] }
         });
     } else if (!name && !minName && !maxName) {
         //gère les valeurs de liste déroulante de tri
         dispatch({
-            type: "EDIT_CRITERIA",
+            type: "EDIT_CRITERIA_HOTEL",
             payload: {
                 order_by: value.order_by,
                 order_direction: value.order_direction
@@ -31,14 +31,14 @@ export const editCriteria = (name, value, minName, maxName) => dispatch => {
     } else {
         //gère toutes les autres valeurs de liste déroulante
         dispatch({
-            type: "EDIT_CRITERIA",
+            type: "EDIT_CRITERIA_HOTEL",
             payload: { [name]: value }
         });
     }
 };
 export const resetCriteria = obj => {
     return {
-        type: "RESET_CRITERIA",
+        type: "RESET_CRITERIA_HOTEL",
         payload: obj
     };
 };

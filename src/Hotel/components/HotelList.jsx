@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import HotelItem from './HotelItem';
 import { hotelData } from '../../data/hotels'
 import SearchForm from './SearchForm';
+import SearchSummary from './Search/SearchSummary';
 const HotelList = () => {
     return (
         <div className="row">
@@ -9,6 +10,7 @@ const HotelList = () => {
                 <SearchForm />
             </div>
             <div className="col-md-12 col-lg-9 col-sm-12">
+                <SearchSummary />
                 <div className="row">
                     {
                         hotelData.map((i, hotel) => (

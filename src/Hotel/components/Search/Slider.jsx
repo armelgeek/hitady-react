@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { editCriteria } from "../../../store/actions/filters/filter";
+import { editCriteria } from "../../../store/actions/filters/hotels";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import "../../../styles/Slider.css";

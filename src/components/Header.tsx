@@ -1,34 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { logout, isLogin } from '../middleware/auth';
+import { Link } from 'react-router-dom';
 
-interface Props {
-  title: string
+const Header = props => {
+    const [state, setState] = useState(false)
+
+    useEffect(() => setState(isLogin()), [props])
+
+    const handleLogout = () => {
+        logout();
+        setState(false)
+    }
+
+    return (
+        <div className="flex flex-row  justify-between items-stretch pt-3 pl-4 pr-4"> 
+        <div className="flex-1">
+        <h3>
+            <a className="text-primary" href="#">Hitady </a>
+        </h3>  
+        </div>
+        <div className="flex text-right">
+            <ul className="flex text-right gap-4">
+                <li><i className="fa fa-globe mr-1"></i>English</li>
+                <li><i className="fa fa-shopping-cart mr-1"></i>Mes commandes</li>
+                <li>Se connecter</li>
+                <li> {state && <Link onClick={() => handleLogout()} to="/">Logout</Link>}</li>
+            </ul>
+       
+        </div>
+                   
+        </div>
+    )
 }
-
-const Header: React.FC<Props> = ({ title }) => {
-  return (
-    <>
-      <nav className="flex  lg:flex-col justify-between ">
-      <ul className="nav">
-        <li className="nav-item dropdown">
-          <a href="#" className="nav-link pl-0 dropdown-toggle" data-toggle="dropdown"> USD </a>
-          <ul className="dropdown-menu small">
-            <li><a className="dropdown-item" href="#">EUR</a></li>
-            <li><a className="dropdown-item" href="#">AED</a></li>
-            <li><a className="dropdown-item" href="#">RUBL </a></li>
-            </ul>
-        </li>
-         <li className="nav-item dropdown show">
-          <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">   Language </a>
-            <ul className="dropdown-menu small" x-placement="bottom-start">
-            <li><a className="dropdown-item" href="#">English</a></li>
-            <li><a className="dropdown-item" href="#">Arabic</a></li>
-            <li><a className="dropdown-item" href="#">Russian </a></li>
-            </ul>
-        </li>
-      </ul>
-  </nav>
-    </>
-  );
-};
-
-export default Header
+export default Header;

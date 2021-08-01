@@ -1,0 +1,122 @@
+import React,{useState,useEffect} from 'react'
+import socketIOClient from "socket.io-client";
+import GoogleLogin from 'react-google-login';
+import Search from '../components/Search'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const Home = ({translator}) => {
+    const [userId, setUserId] = useState("");
+    const [notification,setNotification] = useState({});
+    const [notificationData,setNotificationData] = useState([]);
+    const [countNotification, setCountNotification] = useState(0);
+
+    const [redirect,setRedirect] = useState(false)
+    const socket = socketIOClient("https://armelgeek-api.herokuapp.com/");
+    const notify = (notification) => toast.info(notification, {
+      position: "top-right",
+      newestOnTop:true,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 0,
+    });
+    useEffect(() => {
+      socket.emit("check has notification",userId);
+      socket.emit("get unread notification",userId);
+      socket.on("has notification",countNotification=>{
+           console.log('has notification');
+          setCountNotification(countNotification);
+      })
+      socket.on("unread notification",notification=>{
+          console.log('unread notification');
+          setNotificationData(notification);
+      })
+      socket.on("new notification",notification=>{
+           console.log('new notification');
+            notify(notification.message);
+      })
+    }, [notification]);
+
+    const checkNotification =()=>{
+        setUserId(1);
+    }
+    const makeNotification = () =>{
+      socket.emit("make notification",notification)
+      setNotification({
+        message: "",
+        userId: 0
+      })
+    }
+
+
+    const responseGoogle = async (response) =>{
+      try {
+       let data = await fetch('http://localhost:8000/api/google/client',{
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json'
+       }});
+        if (data.ok) {
+        let json = await data.json();
+        console.log(json);  
+      }
+      } catch (err) {
+        throw err;
+        console.log(err);
+      }
+    }
+  return (
+    <div className="mt-5">
+
+{/*{redirect || sessionStorage.getItem('userData')) ? <Redirect to={'/home'}/>}*/}
+     <GoogleLogin  
+        clientId="208570737878-7te60ghelgjl6hgver579rlb3466nhvc.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}/>
+    <ToastContainer />
+    <input type="text" className="form-control col-lg-3" onChange={(e)=>{
+        setNotification({
+          message:e.target.value,
+          userId:userId
+        })
+    }} />
+    <button type="button" className="btn btn-primary mt-3" onClick={makeNotification}>Make notification</button>
+     <h3>Notifications({ countNotification })</h3>
+
+     <ul class="list-group ">
+      {
+        notificationData.map(notif =>(
+           <li class="list-group-item">
+            <div className=" flex flex-row justify-between">
+                <div>{notif.message }</div>
+                { notif.read ?
+                   <div>
+                     Marque comme lu....
+                   </div>
+                  :
+                  <div>
+                    <button className="btn btn-primary">Marquer comme lu</button>
+                  </div>
+                }
+            </div>
+           </li>
+        ))
+      }
+     </ul>
+      <div> {translator('home.Title', {param: 'react'})} </div>
+    </div>
+  );
+};
+
+export default Home
+{/*                  <GoogleLogin
+        clientId={clientId}
+        buttonText="Login"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+        cookiePolicy={'single_host_origin'}
+        style={{ marginTop: '100px' }}
+        isSignedIn={true}
+      />*/}

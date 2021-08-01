@@ -27,7 +27,7 @@ const CardImage = ({ src }) => {
 
 const CardHotel = ({  item }) => {
     return (
-        <div class="card ">
+        <div className="card ">
          <CardImage src={item.url}/>
           <div className="card-body">
             <Link  to={{

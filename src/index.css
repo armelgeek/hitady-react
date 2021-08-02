@@ -257,7 +257,7 @@ input[type="number"] {
    font-weight: 500;
 }
 .font-travel-h1,.font-travel-h1 span{
-    font-size:80px;
+    font-size:60px;
     font-weight: 400;
     margin-bottom: 14px;
     color: #fde02f;
@@ -283,14 +283,9 @@ input[type="number"] {
 }
 .single-place .place-cap {
     padding: 28px 40px;
-    border: 1px solid #f0f1f2;
-        border-top-color: rgb(240, 241, 242);
-        border-top-style: solid;
-        border-top-width: 1px;
     border-top: 0;
 }
  .single-place .place-cap .place-cap-top {
-    border-bottom: 1px solid #f6f7f7;
     margin-bottom: 24px;
 }
 .single-place .place-cap .place-cap-top span {
@@ -324,4 +319,98 @@ input[type="number"] {
 }
  .single-place .place-cap .place-cap-bottom ul li i {
     padding-right: 8px;
+}
+.bg-travel{
+     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1110), to(transparent)), url('travels/hero.jpeg');background-image: -webkit-linear-gradient(transparent, #1110), url('travels/hero.jpeg');
+    background-image: -moz-linear-gradient(transparent, #111111b8), -moz-linear-gradient(transparent, #1110), url('travels/hero.jpeg');
+    background-image: -o-linear-gradient(transparent, #111111b8), -o-linear-gradient(transparent, #1110), url('travels/hero.jpeg');
+    background-image: linear-gradient(transparent, #111111b8), linear-gradient(transparent, #1110), url('travels/hero.jpeg');background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.listing-item .listing-item-content {
+    position: absolute;
+    bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+.listing-item .listing-item-content .category {
+    font-size: 12px;
+    display: inline-block;
+    padding: 5px 30px;
+        padding-right: 30px;
+        padding-left: 30px;
+    background: #efba6c;
+        background-color: rgb(239, 186, 108);
+    border-radius: 30px;
+    color: #fff;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+.listing-item .listing-item-content h2, .listing-item .listing-item-content h2 a {
+    color: #fff;
+}
+.listing-item .listing-item-content h2 {
+    text-align: center;
+    font-size: 18px;
+}
+
+.listing-item::after {
+
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.31) 47%, rgba(0, 0, 0, 0.65) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(47%, rgba(255, 255, 255, 0.31)), color-stop(100%, rgba(0, 0, 0, 0.65)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.31) 47%, rgba(0, 0, 0, 0.65) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.31) 47%, rgba(0, 0, 0, 0.65) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.31) 47%, rgba(0, 0, 0, 0.65) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(47%, rgba(255, 255, 255, 0.31)), to(rgba(0, 0, 0, 0.65)));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.31) 47%, rgba(0, 0, 0, 0.65) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+
+}
+.img-car{
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1110), to(transparent)), url('car/car.jpeg');background-image: -webkit-linear-gradient(transparent, #1110), url('car/car.jpeg');
+    background-image: -moz-linear-gradient(transparent, #111111b8), -moz-linear-gradient(transparent, #1110), url('car/car.jpeg');
+    background-image: -o-linear-gradient(transparent, #111111b8), -o-linear-gradient(transparent, #1110), url('car/car.jpeg');
+    background-image: linear-gradient(transparent, #111111b8), linear-gradient(transparent, #1110), url('car/car.jpeg');background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}.car-wrap .img {
+    width: 100%;
+    height: 220px;
+}.car-wrap .text {
+    border-top: none;
+    padding: 20px 30px 30px;
+}.car-wrap .text h2 {
+    font-size: 20px;
+    font-weight: 500;
+}.car-wrap .text span.cat {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-bottom: 0;
+}.car-wrap .text h2 a {
+    color: #000000;
+}.car-wrap .text .price {
+    color: #1089ff;
+    margin-bottom: 0;
+    font-weight: 600;
+}.car-wrap .text .price span {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.3);
+}.car-wrap .text p.d-block {
+    width: 100%;
+}.car-wrap .text p.d-block a {
+    width: 50%;
 }

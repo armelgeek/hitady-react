@@ -1,14 +1,14 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useLocation,useHistory } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 import { useDispatch } from 'react-redux'
 import Header from './Header';
 import NavCartItem from './NavCartItem';
 import { GoogleLogin } from 'react-google-login';
-const clientId ='208570737878-7te60ghelgjl6hgver579rlb3466nhvc.apps.googleusercontent.com';
+const clientId = '208570737878-7te60ghelgjl6hgver579rlb3466nhvc.apps.googleusercontent.com';
 
-const Nav = ({translator,getLanguage,socket}) => {
+const Nav = ({ translator, getLanguage, socket }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
@@ -17,19 +17,18 @@ const Nav = ({translator,getLanguage,socket}) => {
   const [isSignIn, setIsSignIn] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
   const links = [
-    { fr: 'Accueil', en :'Home', to: '/' },
-    { fr: 'Madagascar',en:'Madagascar', to: '/travel' },
-    { fr: 'Voyages',en:'Travels', to: '/travel' },
-    { fr: 'Hotels',en:'Hotel', to: '/hotels' },
-    { fr: 'Restaurants',en:'Restaurant', to: '/restaurants' },
-    { fr: 'Voitures',en:'Cars', to: '/cars' },
-    { fr: 'A propos',en:'About', to: '/about' },
+    { fr: 'Accueil', en: 'Home', to: '/' },
+    { fr: 'Madagascar', en: 'Madagascar', to: '/travel' },
+    { fr: 'Voyages', en: 'Travels', to: '/travel' },
+    { fr: 'Hotels', en: 'Hotel', to: '/hotels' },
+    { fr: 'Restaurants', en: 'Restaurant', to: '/restaurants' },
+    { fr: 'Voitures', en: 'Cars', to: '/cars' },
   ];
   const { cartItems } = useSelector(state => state.cart);
-  const priceTotal = useSelector(state  => {
+  const priceTotal = useSelector(state => {
     const cartAllItems = state.cart.cartItems;
     let totalPrice = 0;
     if (cartItems.length > 0) {
@@ -39,12 +38,12 @@ const Nav = ({translator,getLanguage,socket}) => {
   })
   const onSuccess = (res) => {
     const result = res?.profileObj;
-     const token = res?.tokenId;
+    const token = res?.tokenId;
     try {
-        dispatch({ type: "auth", data: { result, token } });
-        history.push('/')
+      dispatch({ type: "auth", data: { result, token } });
+      history.push('/')
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
     console.log('Login Success: currentUser:', res.profileObj);
   };
@@ -57,42 +56,42 @@ const Nav = ({translator,getLanguage,socket}) => {
 
   const handleLogout = () => {
     dispatch({ type: "logout" })
-  history.push('/')
-      setUser(null)
+    history.push('/')
+    setUser(null)
   }
   useEffect(() => {
 
-  const token = user?.token
-      setUser(JSON.parse(localStorage.getItem('profile')))
+    const token = user?.token
+    setUser(JSON.parse(localStorage.getItem('profile')))
   }, [location])
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light shadow">
-      <div className="container-fluid">
-        <a class="navbar-brand font-logo text-primary" href="#">Hitady</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+      <nav className="navbar navbar-expand-lg navbar-light shadow">
+        <div className="container-fluid">
+          <a class="navbar-brand font-logo text-primary" href="#">Hitady</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        <div className="collapse navbar-collapse" id="navbarColor01">
-          <ul className="navbar-nav me-auto">
-             {links.map((link, i) => (
-               <li className="nav-item" key={i}>
-                    <Link
-                      key={getLanguage()=='fr' ? link.fr : link.en }
-                      to={link.to}
-                      className={` nav-link ${location.pathname === link.to
-                        ? 'active'
-                        : ''
-                        } ${i > 0 && 'ml-1'}`}
-                    >
-                      {getLanguage()=='fr' ? link.fr : link.en }
-                      {i == 0 && <span className="visually-hidden">(actuel) </span>}
-                    </Link>
+          <div className="collapse navbar-collapse" id="navbarColor01">
+            <ul className="navbar-nav me-auto">
+              {links.map((link, i) => (
+                <li className="nav-item" key={i}>
+                  <Link
+                    key={getLanguage() == 'fr' ? link.fr : link.en}
+                    to={link.to}
+                    className={` nav-link ${location.pathname === link.to
+                      ? 'active'
+                      : ''
+                      } ${i > 0 && 'ml-1'}`}
+                  >
+                    {getLanguage() == 'fr' ? link.fr : link.en}
+                    {i == 0 && <span className="visually-hidden">(actuel) </span>}
+                  </Link>
                 </li>
               ))}
-             {/*{user
+              {/*{user
                         ? <div className="flex">
                            <img src={user.result.imageUrl} width="30" className="rounded float-left" alt="..."/>
                            <p>{user.result.name}</p>
@@ -110,59 +109,59 @@ const Nav = ({translator,getLanguage,socket}) => {
       />
       )
                     }*/}
-          </ul>
+            </ul>
+          </div>
         </div>
-      </div>
-       <div className="hidden md:block mr-3">
-              <div className="ml-4 flex items-center md:ml-6">
-               
+        <div className="hidden md:block mr-3">
+          <div className="ml-4 flex items-center md:ml-6">
 
-                <div className="ml-3 relative">
-                  <div>
-                    <button
-                      onClick={() => setShowCartMenu(!showCartMenu)}>
-                      <span className="sr-only">Open cart menu</span>
-                      <Link to={"/cart"} >
-                        {cartItems.length > 0 &&
-                          <span className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">{cartItems.length}</span>
-                        }
-                      </Link>
-                    </button>
-                    {showCartMenu && (
 
-                      <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
-                        <div
-                          className="py-1 rounded-md bg-white shadow-xs"
-                          role="menu"
-                          aria-orientation="vertical"
-                          aria-labelledby="user-menu"
-                        >
-                          {cartItems.length === 0 &&
-                            <a
-                              href="#"
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                              role="menuitem"
-                            >{translator('restaurant.noItemCart')}</a>
-                          }
-                          {cartItems.map(item => (
-                            <NavCartItem
-                              key={item.id}
-                              id={item.id}
-                              name={item.name}
-                              price={item.price}
-                              count={item.count}
-                            />
-                          ))}
-                          {cartItems.length !== 0 && (<NumberFormat value={priceTotal} displayType={'text'} thousandSeparator={true} suffix={' Ar'} />)}
-                        </div>
-                      </div>
-                    )}
+            <div className="ml-3 relative">
+              <div>
+                <button
+                  onClick={() => setShowCartMenu(!showCartMenu)}>
+                  <span className="sr-only">Open cart menu</span>
+                  <Link to={"/cart"} >
+                    {cartItems.length > 0 &&
+                      <span className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">{cartItems.length}</span>
+                    }
+                  </Link>
+                </button>
+                {showCartMenu && (
+
+                  <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
+                    <div
+                      className="py-1 rounded-md bg-white shadow-xs"
+                      role="menu"
+                      aria-orientation="vertical"
+                      aria-labelledby="user-menu"
+                    >
+                      {cartItems.length === 0 &&
+                        <a
+                          href="#"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          role="menuitem"
+                        >{translator('restaurant.noItemCart')}</a>
+                      }
+                      {cartItems.map(item => (
+                        <NavCartItem
+                          key={item.id}
+                          id={item.id}
+                          name={item.name}
+                          price={item.price}
+                          count={item.count}
+                        />
+                      ))}
+                      {cartItems.length !== 0 && (<NumberFormat value={priceTotal} displayType={'text'} thousandSeparator={true} suffix={' Ar'} />)}
+                    </div>
                   </div>
-                </div>
-                
+                )}
               </div>
             </div>
-    </nav>
+
+          </div>
+        </div>
+      </nav>
     </>
   );
 };

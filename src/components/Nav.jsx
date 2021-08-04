@@ -81,7 +81,7 @@ const Nav = ({ translator, getLanguage, socket }) => {
                   <Link
                     key={getLanguage() == 'fr' ? link.fr : link.en}
                     to={link.to}
-                    className={` nav-link ${location.pathname === link.to
+                    className={` nav-link text-bold ${location.pathname === link.to
                       ? 'active'
                       : ''
                       } ${i > 0 && 'ml-1'}`}

@@ -133,7 +133,9 @@ const Banner = () => {
             </div>
         </div>
             <div>
-                <SearchBar />
+                {/**
+                 * <SearchBar />
+                 * */}
             </div>
         </>
     );

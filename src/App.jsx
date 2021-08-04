@@ -1,4 +1,4 @@
-import React, {useMemo, useEffect ,useState} from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { getLanguage, setLanguage, useTranslation } from 'react-multi-lang';
@@ -11,7 +11,7 @@ import Home from './views/Home'
 //room
 import Hotels from './Hotel/index'
 import RoomList from './Hotel/rooms'
-import DetailRoom from './Hotel/detail'
+import DetailHotel from './Hotel/detail'
 // car
 import CarList from './Car/cars'
 import CarIndex from './Car/index'
@@ -60,62 +60,62 @@ const App = () => {
 
     // responseData = await response.json();
   }
-const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (
     <Router>
-    <UserContext.Provider value={value}>
-      {/** <GoogleOneTapLogin onError={(error) => console.log(error)} onSuccess={(response) => verifyGoogleLogin(response)} googleAccountConfigs={{
+      <UserContext.Provider value={value}>
+        {/** <GoogleOneTapLogin onError={(error) => console.log(error)} onSuccess={(response) => verifyGoogleLogin(response)} googleAccountConfigs={{
         client_id: "208570737878-7te60ghelgjl6hgver579rlb3466nhvc.apps.googleusercontent.com"
       }} />
       **/}
-      <Nav translator={t} getLanguage={getLanguage} />
-      <>
-        <Switch>
-          <Route exact path="/">
-            <Home translator={t} />
-          </Route>
-          <Route path="/travel">
-            <TravelList />
-          </Route>
-          <Route path="/hotels">
-            <Hotels />
-          </Route>
-          <Route path="/rooms">
-            <RoomList />
-          </Route>
-          <Route path="/room/:roomId">
-            <DetailRoom />
-          </Route>
-          <Route path="/cars">
-            <CarIndex />
-          </Route>
-          <Route path="/car/:carId">
-            <DetailCar />
-          </Route>
-          <Route path="/restaurants">
-            <Restaurant />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/checkout">
-            <CheckoutResto />
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-      </>
-      <Footer
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
-        setLanguage={setLanguage}
-        getLanguage={getLanguage}
-      />
-    </UserContext.Provider>
+        <Nav translator={t} getLanguage={getLanguage} />
+        <>
+          <Switch>
+            <Route exact path="/">
+              <Home translator={t} />
+            </Route>
+            <Route path="/travel">
+              <TravelList />
+            </Route>
+            <Route path="/hotels">
+              <Hotels />
+            </Route>
+            <Route path="/rooms">
+              <RoomList />
+            </Route>
+            <Route path="/hotel/:hotelId">
+              <DetailHotel />
+            </Route>
+            <Route path="/cars">
+              <CarIndex />
+            </Route>
+            <Route path="/car/:carId">
+              <DetailCar />
+            </Route>
+            <Route path="/restaurants">
+              <Restaurant />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route path="/checkout">
+              <CheckoutResto />
+            </Route>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </>
+        <Footer
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+          setLanguage={setLanguage}
+          getLanguage={getLanguage}
+        />
+      </UserContext.Provider>
     </Router>
   );
 };

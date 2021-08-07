@@ -7,11 +7,12 @@ import Slider from '../components/Search/Slider';
 import DropdownInput from '../components/Search/DropdownInput';
 import RatingFilter from '../components/Search/RatingFilter';
 import SearchFormRadio from '../components/Search/SearchFormRadio';
+import SearchBar from './Search/SearchBar';
 class SearchForm extends Component {
     constructor(props) {
         super(props);
     }
-     componentDidMount() {
+    componentDidMount() {
         //make an initial request. (The criteria object is in the redux store)
         //Objective: populate the dropdowns values with the response.metadata
         this.props.fetchData();
@@ -27,7 +28,7 @@ class SearchForm extends Component {
     render() {
         return (
             <>
-                 <Slider
+                <Slider
                     type="budget"
                     label="Budget"
                     minName="price_min"
@@ -37,15 +38,15 @@ class SearchForm extends Component {
                 <RatingFilter />
                 <DropdownInput
                     label="Star"
-                        name="star"
-                        stateOptions={[
+                    name="star"
+                    stateOptions={[
                         { key: "1", value: 1, text: "1 étoile" },
                         { key: "2", value: 2, text: "2 étoiles" },
                         { key: "3", value: 3, text: "3 étoiles" },
                         { key: "3", value: 4, text: "4 étoiles" },
                         { key: "3", value: 5, text: "5 étoiles" }
-                        ]}
-                />       
+                    ]}
+                />
             </>
         );
     }

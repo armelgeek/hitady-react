@@ -1,6 +1,4 @@
 import React from 'react';
-import { Tabs } from 'antd';
-const { TabPane } = Tabs;
 const VoyageSearchForm = () => {
     return (
         <form>
@@ -115,7 +113,22 @@ const SearchBar = () => {
 }
 const Banner = () => {
     return (
-        <><div className="w-100 h-banner bg-gray-300 bg-hitady relative">
+        <><div className="w-100 h-banner bg-gray-300 bg-hitady relative overflow-hidden">
+
+            <div class="bird-animation">
+                <div class="bird-container bird-container--one">
+                    <div class="bird bird--one"></div>
+                </div>
+                <div class="bird-container bird-container--two">
+                    <div class="bird bird--two"></div>
+                </div>
+                <div class="bird-container bird-container--three">
+                    <div class="bird bird--three"></div>
+                </div>
+                <div class="bird-container bird-container--four">
+                    <div class="bird bird--four"></div>
+                </div>
+            </div>
             <div className="flex flex-col justify-center items-center h-100">
                 <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-4xl">
                     <h1 class="text-5xl font-bold font-hitady text-white tracking-tight hero-title  sm:text-5xl sm:leading-none">

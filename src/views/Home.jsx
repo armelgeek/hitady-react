@@ -118,14 +118,11 @@ const CQH = () => {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quas molestiae doloribus quo dicta. Soluta, consequatur sunt cumque tempora placeat deleniti nam? Minus quos eius velit molestiae sint natus asperiores!</p>
         <div class="ml-6">
 
-          <p className="text-bold"><i class="fa fa-check mr-2 text-success" aria-hidden="true"></i>
-            lorem ceci est cela</p>
-
-          <p className="text-bold"><i class="fa fa-check mr-2 text-success" aria-hidden="true"></i>
-            lorem ceci est cela</p>
-
-          <p className="text-bold"><i class="fa fa-check mr-2 text-success" aria-hidden="true"></i>
-            lorem ceci est cela</p>
+          <ul class="flex flex-column max-w-full w-100 flex-wrap bullets">
+            <li>Dolorem mediocritatem</li>
+            <li>Mea appareat</li>
+            <li>Prima causae</li>
+          </ul>
         </div>
       </div>
       <div class="col-sm-6">
@@ -205,7 +202,13 @@ function Category({ name, icon }) {
     </>
   )
 }
-
+const More = ({ to }) => {
+  return (
+    <div class="flex flex-row justify-center items-center mt-2" >
+      <a href="#0" class="p-3 bg-white border rounded-full"><strong>View all   <i class=" ml-1 fa fa-arrow-right"></i></strong></a>
+    </div >
+  )
+}
 function Home() {
 
   const [activeHotelIndex, setActiveHotelIndex] = useState(0);
@@ -239,10 +242,10 @@ function Home() {
                 activeItemIndex={activeHotelIndex}
                 numberOfCards={4}
                 gutter={20}
-                leftChevron={<button>{'<'}</button>}
-                rightChevron={<button>{'>'}</button>}
                 outsideChevron
-                chevronWidth={chevronWidth}
+                leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
+                rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+                chevronWidth={40}
               >
 
                 <HotelCard />
@@ -252,6 +255,7 @@ function Home() {
                 <HotelCard />
               </ItemsCarousel>
             </div>
+            <More to={"/"} />
           </div>
         </div>
       </section>
@@ -292,10 +296,10 @@ function Home() {
               activeItemIndex={activeRestoIndex}
               numberOfCards={4}
               gutter={20}
-              leftChevron={<button>{'<'}</button>}
-              rightChevron={<button>{'>'}</button>}
               outsideChevron
-              chevronWidth={chevronWidth}
+              leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
+              rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+              chevronWidth={40}
             >
 
               <FoodItem />
@@ -330,10 +334,10 @@ function Home() {
               activeItemIndex={activeCategoryIndex}
               numberOfCards={5}
               gutter={15}
-              leftChevron={<button>{'<'}</button>}
-              rightChevron={<button>{'>'}</button>}
               outsideChevron
-              chevronWidth={chevronWidth}
+              leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
+              rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+              chevronWidth={40}
             >
               <Category name={"Hotels"} icon={"bed"} />
               <Category name={"Restaurants"} icon={"table"} />
@@ -365,7 +369,9 @@ function Home() {
                 numberOfCards={1}
                 gutter={20}
                 outsideChevron
-                chevronWidth={chevronWidth}
+                leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
+                rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+                chevronWidth={40}
               >
                 <TravelCard /> <TravelCard /> <TravelCard />
               </ItemsCarousel>
@@ -410,10 +416,10 @@ function Home() {
               activeItemIndex={activeCarIndex}
               numberOfCards={4}
               gutter={20}
-              leftChevron={<button>{'<'}</button>}
-              rightChevron={<button>{'>'}</button>}
               outsideChevron
-              chevronWidth={chevronWidth}
+              leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
+              rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+              chevronWidth={40}
             >
 
               <CarItem />

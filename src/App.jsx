@@ -12,6 +12,9 @@ import Home from './views/Home'
 import Hotels from './Hotel/index'
 import RoomList from './Hotel/rooms'
 import DetailHotel from './Hotel/detail'
+import BookingHotel from './Hotel/components/Booking/index'
+import PayHotel from './Hotel/components/Booking/pay'
+
 // car
 import CarList from './Car/cars'
 import CarIndex from './Car/index'
@@ -29,6 +32,8 @@ import Orders from './views/Orders'
 import About from './views/About'
 import NotFound from './views/NotFound'
 import GoogleOneTapLogin from 'react-google-one-tap-login';
+import BookingSuccefull from './Hotel/components/Booking/BookingSuccefull';
+import BookingFailed from './Hotel/components/Booking/BookingFailed';
 const App = () => {
   const t = useTranslation()
   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
@@ -89,6 +94,19 @@ const App = () => {
             <Route path="/hotel/:hotelId">
               <DetailHotel />
             </Route>
+            <Route path="/booking/hotel/1">
+              <BookingHotel />
+            </Route>
+            <Route path="/booking/pay/hotel/1">
+              <PayHotel />
+            </Route>
+            <Route path="/booking/pay/success/1">
+              <BookingSuccefull />
+            </Route>
+            <Route path="/booking/pay/failed/1">
+              <BookingFailed />
+            </Route>
+
             <Route path="/cars">
               <CarIndex />
             </Route>

@@ -4,15 +4,21 @@ import { hotelData } from '../../data/hotels'
 import SearchForm from './SearchForm';
 import SearchSummary from './Search/SearchSummary';
 import SearchResults from './Search/SearchResults';
+import SearchBar from './Search/SearchBar';
 const HotelList = () => {
     return (
         <div className="row">
+            <div className="col-md-12 col-lg-12 col-sm-12">
+                <SearchBar />
+            </div>
+
             <div className="col-md-12  col-lg-3 col-sm-12">
+
                 <SearchForm />
             </div>
             <div className="col-md-12 col-lg-9 col-sm-12">
                 <SearchSummary />
-                 <SearchResults />
+                <SearchResults />
             </div>
         </div>
     );

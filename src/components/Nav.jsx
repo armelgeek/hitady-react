@@ -21,10 +21,11 @@ const Nav = ({ translator, getLanguage, socket }) => {
 
   const links = [
     { fr: 'Accueil', en: 'Home', to: '/' },
-    { fr: 'Madagascar', en: 'Madagascar', to: '/travel' },
+    { fr: 'Madagascar', en: 'Madagascar', to: '/madagascar' },
     { fr: 'Voyages', en: 'Travels', to: '/travel' },
     { fr: 'Hotels', en: 'Hotel', to: '/hotels' },
     { fr: 'Restaurants', en: 'Restaurant', to: '/restaurants' },
+    { fr: 'Activités', en: 'Activity', to: '/activity' },
     { fr: 'Voitures', en: 'Cars', to: '/cars' },
   ];
   const { cartItems } = useSelector(state => state.cart);
@@ -91,24 +92,12 @@ const Nav = ({ translator, getLanguage, socket }) => {
                   </Link>
                 </li>
               ))}
-              {/*{user
-                        ? <div className="flex">
-                           <img src={user.result.imageUrl} width="30" className="rounded float-left" alt="..."/>
-                           <p>{user.result.name}</p>
-                            <button onClick={handleLogout} size='small' variant='contained' color='secondary'>Logout</button>
-                        </div>
-                        : (
-                            <GoogleLogin
-        clientId={clientId}
-        buttonText="Login"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-        style={{ marginTop: '100px' }}
-        isSignedIn={true}
-      />
-      )
-                    }*/}
+
+            </ul>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+
+              </li>
             </ul>
           </div>
         </div>

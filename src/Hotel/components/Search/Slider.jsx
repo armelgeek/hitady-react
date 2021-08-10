@@ -42,10 +42,9 @@ class Slider extends Component {
         if (this.props.type === "budget") {
             return (
                 <Fragment>
-                    <label>{this.props.label}</label>
-                    <p>
-                        ${min} - ${max}
-                    </p>
+                    <h6 className="font-meduim">
+                        {min} Ar - {max} Ar
+                    </h6>
                     <InputRange
                         maxValue={3000}
                         minValue={100}
@@ -61,7 +60,7 @@ class Slider extends Component {
             return (
                 <Fragment>
                     <label>{this.props.label}</label>
-                    <p>
+                    <p className="font-semibold">
                         {min} - {max} Seats
                     </p>
                     <InputRange
@@ -79,7 +78,7 @@ class Slider extends Component {
 
     render() {
         return (
-            <section className="slider" style={{ paddingTop: ".5rem" }}>
+            <section className="slider">
                 {this.renderCorrectSliderType()}
             </section>
         );

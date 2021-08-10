@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { editCriteria,fetchData } from "../../../store/actions/filters/hotels";
+import { editCriteria, fetchData } from "../../../store/actions/filters/hotels";
 import ActiveFilterItem from './ActiveFilterItem'
 class SearchSummary extends Component {
     state = {
@@ -29,26 +29,25 @@ class SearchSummary extends Component {
             }
         ]
     };
-      showNumberOfCarsAvailable = () => {
+    showNumberOfCarsAvailable = () => {
         return this.props.fetchedData
             ? "Recherche des hotels"
             : `hôtels disponibles`;
-            // ${this.props.metadata.total_count} 
+        // ${this.props.metadata.total_count} 
     };
-      handleValueChange = (e) => {
+    handleValueChange = (e) => {
         this.setState({ value: e.target.value }, () => {
             this.props.editCriteria(null, e.target.value, null, null);
         });
     };
-     renderActiveFilters = () => {
+    renderActiveFilters = () => {
         if (this.props.isCriteriaPristine) {
             // if form is still pristine, don't show active filters
             return;
         }
         let relevantCriteriaKeys = Object.keys(this.props.criteria);
         return relevantCriteriaKeys.map(key => {
-            if (key !== "page" && key !=="rolling" && key!=="max_price")
-            {
+            if (key !== "page" && key !== "rolling" && key !== "max_price") {
                 return (
                     <ActiveFilterItem
                         data={{ [key]: this.props.criteria[key] }}
@@ -57,32 +56,31 @@ class SearchSummary extends Component {
                 );
             }
         });
-     }
+    }
     render() {
         return (
-            <div>
-              <div>
-                   {this.showNumberOfCarsAvailable()}
-                   <div className="col-lg-8 mb-3">
-                   </div>
-                   <div className="col-lg-4 mb-3">
-                       <select className="form-control" 
-                            name="order_by"
-                            value={this.state.value}
-                            onChange={(e) => {
+            <>
+
+                <div className="col-lg-9 mb-3 mt-2">
+                    {this.showNumberOfCarsAvailable()}
+                </div>
+                <div className="col-lg-3 mb-3">
+                    <select className="form-control w-full"
+                        name="order_by"
+                        value={this.state.value}
+                        onChange={(e) => {
                             this.handleValueChange(e);
                         }}
-                        >
-                        {this.state.options.map(v =>(
-                            <option  value={v.key} >{v.text}</option>
+                    >
+                        {this.state.options.map(v => (
+                            <option value={v.key} >{v.text}</option>
                         ))}
-                        </select>
-                   </div>
-                   <div className="flex flex-row gap-3">
-                        {this.renderActiveFilters()}
-                   </div>
+                    </select>
                 </div>
-            </div>
+                <div className="flex flex-row gap-2">
+                    {this.renderActiveFilters()}
+                </div>
+            </>
         )
     }
 }

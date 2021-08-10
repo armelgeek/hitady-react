@@ -34,7 +34,6 @@ const DetailHotel = () => {
 					</div>
 					<div className="col-lg-4">
 						<Localisation />
-						<Reservation />
 						<section id="carte" className="mb-24">
 							<h1 className="font-resto text-md section-etablissement-title">Send us an email</h1>
 							{/**<BookingCard

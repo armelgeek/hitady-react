@@ -29,7 +29,7 @@ const ActivityTourCard = () => {
             </div>
             {<div class="flex flex-row justify-end pr-4 m-0">
               <div class="detail-btn">
-                <a href="#"> <i class="fas fa-arrow-right"></i></a>
+                <a href="#"> <i class="fas fa-angle-right"></i></a>
               </div></div>}
           </div>
 
@@ -86,7 +86,7 @@ const HotelCard = () => {
           </div>
           <div>
             <div class="detail-btn mt-2">
-              <a href="#" className="text-gray"><i class="fas fa-arrow-right"></i></a>
+              <a href="#" className="text-gray"><i class="fas fa-angle-right"></i></a>
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ const CarItem = () => {
           </div>
           <div>
             <div class="detail-btn mt-2">
-              <a href="#" className="text-gray"><i class="fas fa-arrow-right"></i></a>
+              <a href="#" className="text-gray"><i class="fas fa-angle-right"></i></a>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ function Category({ name, icon }) {
 const More = ({ to }) => {
   return (
     <div class="flex flex-row justify-center items-center mt-2" >
-      <a href="#0" class="p-3 bg-white border rounded-full"><strong>View all   <i class=" ml-1 fa fa-arrow-right"></i></strong></a>
+      <a href="#0" class="p-3 bg-white border rounded-full"><strong>View all   <i class=" ml-1 fa fa-angle-right"></i></strong></a>
     </div >
   )
 }
@@ -243,8 +243,8 @@ function Home() {
                 numberOfCards={4}
                 gutter={20}
                 outsideChevron
-                leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
-                rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+                leftChevron={<button className="detail-btn"><i className="fa fa-angle-left"></i></button>}
+                rightChevron={<button className="detail-btn"><i className="fa fa-angle-right"></i></button>}
                 chevronWidth={40}
               >
 
@@ -297,8 +297,8 @@ function Home() {
               numberOfCards={4}
               gutter={20}
               outsideChevron
-              leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
-              rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+              leftChevron={<button className="detail-btn"><i className="fa fa-angle-left"></i></button>}
+              rightChevron={<button className="detail-btn"><i className="fa fa-angle-right"></i></button>}
               chevronWidth={40}
             >
 
@@ -335,8 +335,8 @@ function Home() {
               numberOfCards={5}
               gutter={15}
               outsideChevron
-              leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
-              rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+              leftChevron={<button className="detail-btn"><i className="fa fa-angle-left"></i></button>}
+              rightChevron={<button className="detail-btn"><i className="fa fa-angle-right"></i></button>}
               chevronWidth={40}
             >
               <Category name={"Hotels"} icon={"bed"} />
@@ -368,9 +368,8 @@ function Home() {
                 activeItemIndex={activeTourIndex}
                 numberOfCards={1}
                 gutter={20}
-                outsideChevron
-                leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
-                rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+                leftChevron={<button className="detail-btn"><i className="fa fa-angle-left"></i></button>}
+                rightChevron={<button className="detail-btn"><i className="fa fa-angle-right"></i></button>}
                 chevronWidth={40}
               >
                 <TravelCard /> <TravelCard /> <TravelCard />
@@ -417,8 +416,8 @@ function Home() {
               numberOfCards={4}
               gutter={20}
               outsideChevron
-              leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
-              rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+              leftChevron={<button className="detail-btn"><i className="fa fa-angle-left"></i></button>}
+              rightChevron={<button className="detail-btn"><i className="fa fa-angle-right"></i></button>}
               chevronWidth={40}
             >
 

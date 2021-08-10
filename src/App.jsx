@@ -34,6 +34,8 @@ import NotFound from './views/NotFound'
 import GoogleOneTapLogin from 'react-google-one-tap-login';
 import BookingSuccefull from './Hotel/components/Booking/BookingSuccefull';
 import BookingFailed from './Hotel/components/Booking/BookingFailed';
+import Madagascar from './views/Madagascar';
+import ActivityIndex from './Activites';
 const App = () => {
   const t = useTranslation()
   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
@@ -122,6 +124,13 @@ const App = () => {
             <Route path="/checkout">
               <CheckoutResto />
             </Route>
+            <Route path="/activites">
+              <ActivityIndex />
+            </Route>
+            <Route path="/madagascar">
+              <Madagascar />
+            </Route>
+
             <Route>
               <NotFound />
             </Route>

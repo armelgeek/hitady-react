@@ -4,21 +4,51 @@ import { connect } from "react-redux";
 import { Grid, Button } from "semantic-ui-react";
 const CarItem = () => {
     return (
-        <div className="col-lg-4">
+        <div className="col-lg-3">
+            <div class="card card-span rounded-3 mb-3">
+                <div class="h-48 img-car">
 
-            <div class="car-wrap rounded shadow-lg">
-                <div class="img rounded d-flex align-items-end img-car" >
                 </div>
-                <div class="text">
-                    <h2 class="mb-0"><a href="#" className="text-light">Mercedes Grand Sedan</a></h2>
-                    <div class="d-flex mb-3">
-                        <span class="text-primary">Cheverolet</span>
-                        <p class="price ml-auto">$500 <span className="text-white">/day</span></p>
+                <div class="card-body">
+                    <div class="d-flex align-items-center"><img class="img-fluid" width="32" src="restaurants/logo/logo1.png" alt="" />
+                        <div class="flex-1 ms-3">
+                            <h5 class="fw-bold text-1000 text-truncate mb-2">Mercedez Bens</h5><span class="text-primary fs--1 me-1"><i class="fas fa-map-marker-alt"></i></span><span class="mb-0 text-primary">Ambozontany</span>
+                        </div>
                     </div>
-                    <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                </div>
+                <div class="card-footer flex justify-between ">
+                    <div>
+                        <span className="block"> A partir de</span> <h6>1 000 000 Ar / <span >jour(s) </span></h6>
+                    </div>
+                    <div>
+                        <div class="detail-btn mt-2">
+                            <a href="#" className="text-gray"><i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
+    )
+}
+const Banner = () => {
+    return (
+        <div className="w-100 h-96 relative shadow-lg">
+            <div className="flex flex-col justify-center items-start bg-car h-100">
+                <div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="hero__caption">
+                                    {/**   <h1 className="font-travel-h1">Trouvez votre  prochaine   <span className="relative">tournée !</span> </h1>
+                                    <p>Where would you like to go?</p>*/}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div >
+        </div >
     )
 }
 export default class CarIndex extends Component {
@@ -26,12 +56,14 @@ export default class CarIndex extends Component {
 
     render() {
         return (
-            <div className="container mt-4">
-                Un moyen rapide et facile de louer une voiture
-                <div className="row">
-                    <CarItem /><CarItem /><CarItem /><CarItem /><CarItem />
-                </div>
-            </div >
+            <>
+                <Banner />
+                <div className="container mt-4">
+                    <div className="row">
+                        <CarItem /><CarItem /><CarItem /><CarItem /><CarItem />
+                    </div>
+                </div >
+            </>
         );
     }
 }

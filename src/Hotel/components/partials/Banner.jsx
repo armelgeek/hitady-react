@@ -11,8 +11,8 @@ export default function Banner() {
                 numberOfCards={3}
                 infiniteLoop={true}
                 gutter={3}
-                leftChevron={<button className="detail-btn"><i className="fa fa-arrow-left"></i></button>}
-                rightChevron={<button className="detail-btn"><i className="fa fa-arrow-right"></i></button>}
+                leftChevron={<button className="detail-btn"><i className="fa fa-angle-left"></i></button>}
+                rightChevron={<button className="detail-btn"><i className="fa fa-angle-right"></i></button>}
                 chevronWidth={40}
             >
                 <img src="/activity/detail/activity-detail-1.jpeg" alt="" srcset="" />
